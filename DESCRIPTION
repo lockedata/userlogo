@@ -17,4 +17,7 @@ Authors@R:
            family = "Locke",
            role = c("aut")))
 Imports: 
-    xml2
+    xml2,
+    magick,
+    rsvg
+RoxygenNote: 6.1.0.9000
