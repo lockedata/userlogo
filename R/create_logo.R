@@ -42,6 +42,8 @@ create_logo <- function(colour = "#ffc0cb",
   svg_path <- file.path(folder, "userlogo.svg")
   xml2::write_xml(logo,
                   svg_path)
-  svg <- magick::image_read_svg(svg_path)
+  svg <- magick::image_read_svg(svg_path,
+                                width = 2177.1023,
+                                height = 1574.6538)
   magick::image_write(svg, file.path(folder, "userlogo.png"))
 }
