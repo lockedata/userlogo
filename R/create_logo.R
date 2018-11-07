@@ -24,7 +24,10 @@ create_logo <- function(colour = "#ffc0cb",
 
   logo <- xml2::read_xml(logo_path)
 
-  col_path <- xml2::xml_children(logo)[6]
+  col_path <- xml2::xml_find_all(logo,
+                                 "//d1:path",
+                                 xml2::xml_ns(logo))[3]
+
   current_style <- xml2::xml_attr(col_path, "style")
   new_style <- sub("#494949", colour,
                    current_style)
