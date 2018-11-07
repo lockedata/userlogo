@@ -1,0 +1,20 @@
+Package: userlogo
+Type: Package
+Title: Creates a 'UseR!' Conference Logo
+Version: 0.1.0
+Description: It customizes an useR! logo with chosen colour and date,
+    and exports it as svg and output.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Authors@R: 
+    c(person(given = "Maëlle",
+           family = "Salmon",
+           role = c("aut", "cre"),
+           email = "maelle.salmon@yahoo.se",
+           comment = c(ORCID = "0000-0002-2815-0399")),
+      person(given = "Oz",
+           family = "Locke",
+           role = c("aut")))
+Imports: 
+    xml2
