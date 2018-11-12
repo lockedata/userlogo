@@ -1,6 +1,6 @@
 #' Customize useR! logo
 #'
-#' @param colour hex code of the color for use and "!"
+#' @param colour hex code of the colour for use and "!"
 #' @param year year of the conference
 #' @param folder folder where to save the svg and PNG
 #'
@@ -32,6 +32,14 @@ create_logo <- function(colour = "#ffc0cb",
   new_style <- sub("#494949", colour,
                    current_style)
   xml2::xml_set_attr(col_path, "style", new_style)
+
+  col_path2 <- xml2::xml_find_all(logo,
+                                  "//d1:path[@id='halo']",
+                                  xml2::xml_ns(logo))
+  current_style <- xml2::xml_attr(col_path2, "style")
+  new_style <- sub("#494949", colour,
+                   current_style)
+  xml2::xml_set_attr(col_path2, "style", new_style)
 
 
   # year

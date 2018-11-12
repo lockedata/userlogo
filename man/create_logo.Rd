@@ -7,7 +7,7 @@
 create_logo(colour = "#ffc0cb", year = 2020, folder)
 }
 \arguments{
-\item{colour}{hex code of the color for use and "!"}
+\item{colour}{hex code of the colour for use and "!"}
 
 \item{year}{year of the conference}
 
