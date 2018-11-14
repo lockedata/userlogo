@@ -33,15 +33,6 @@ create_logo <- function(colour = "#ffc0cb",
                    current_style)
   xml2::xml_set_attr(col_path, "style", new_style)
 
-  col_path2 <- xml2::xml_find_all(logo,
-                                  "//d1:path[@id='halo']",
-                                  xml2::xml_ns(logo))
-  current_style <- xml2::xml_attr(col_path2, "style")
-  new_style <- sub("#494949", colour,
-                   current_style)
-  xml2::xml_set_attr(col_path2, "style", new_style)
-
-
   # year
   year_parts <- xml2::xml_find_all(logo, "//d1:text[@id='y1' or @id='y2' or @id='y3' or @id='y4']",
                                    xml2::xml_ns(logo))
