@@ -8,6 +8,8 @@ The goal of userlogo is to customize the useR\! logo with
   - the chosen colour for the “use” and “\!”,
 
   - the conference year.
+  
+  **Note:** Light colours don't render well in PNG, but are fine in the SVG. It is recommended that you use the SVG version where possible.
 
 ## Installation
 
