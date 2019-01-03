@@ -18,14 +18,24 @@ create_logo <- function(colour = "#ffc0cb",
     stop("year should be a 4 number argument e.g. 2020")
   }
 
-  # load default logo
-  logo_path <- system.file("extdata", "userlogo.svg",
+  modify_logo("userlogo-withyear-square",
+              colour = colour,
+              year = year, folder = folder)
+
+  modify_logo("userlogo-withyear",
+              colour = colour,
+              year = year, folder = folder)
+
+}
+
+modify_logo <- function(logofile, colour, year, folder){
+  logo_path <- system.file("extdata", paste0(logofile, ".svg"),
                            package = "userlogo")
 
   logo <- xml2::read_xml(logo_path)
 
   col_path <- xml2::xml_find_all(logo,
-                                 "//d1:path[@id='sides']",
+                                 "//d1:path[@id='side']",
                                  xml2::xml_ns(logo))
 
   current_style <- xml2::xml_attr(col_path, "style")
@@ -39,11 +49,12 @@ create_logo <- function(colour = "#ffc0cb",
   xml2::xml_set_text(year_parts, substring(year, 1:4, 1:4))
 
   # save
-  svg_path <- file.path(folder, "userlogo.svg")
+  svg_path <- file.path(folder, paste0(logofile, ".svg"))
   xml2::write_xml(logo,
                   svg_path)
+  browser()
   svg <- magick::image_read_svg(svg_path,
                                 width = 2177.1023,
                                 height = 1574.6538)
-  magick::image_write(svg, file.path(folder, "userlogo.png"))
+  magick::image_write(svg, file.path(folder, paste0(logofile, ".png")))
 }

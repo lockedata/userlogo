@@ -29,14 +29,16 @@ remotes::install_github("lockedata/userlogo")
 
 ## Example
 
-Default logo.
+Default logos.
 
 ```{r default}
-magick::image_read_svg(system.file("extdata", "userlogo.svg",
+magick::image_read_svg(system.file("extdata", "userlogo-withyear.svg",
+                           package = "userlogo"))
+magick::image_read_svg(system.file("extdata", "userlogo-withyear-square.svg",
                            package = "userlogo"))
 ```
 
-Make it pink!
+Make them pink! This will create 2 PNG files and 2 SVG files in the folder you choose.
 
 ```{r pink}
 dir <- tempdir()
@@ -44,6 +46,8 @@ userlogo::create_logo(colour = "#ffc0cb",
                       year = 2020,
                       folder = dir)
 
-magick::image_read_svg(file.path(dir, "userlogo.svg"))
-magick::image_read(file.path(dir, "userlogo.png"))
+magick::image_read_svg(file.path(dir, "userlogo-withyear.svg"))
+magick::image_read(file.path(dir, "userlogo-withyear.png"))
+magick::image_read_svg(file.path(dir, "userlogo-withyear-square.svg"))
+magick::image_read(file.path(dir, "userlogo-withyear-square.png"))
 ```
